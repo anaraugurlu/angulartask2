@@ -1,0 +1,68 @@
+<div class="container">
+<div class="row">
+  <div class="col-5 mx-auto">
+    <h3 class="bg-primary text-white p-3">{{ getName() }}'s list</h3>
+    <div class="input-group mb-3">
+      <input
+        #input
+        type="text"
+        class="form-control"
+        (keyup.enter)="addItem(input.value)"
+        input.value=""
+      />
+      <!-- (blur)="addItem(input.value)" -->
+      <button
+        class="btn btn-outline-primary"
+        (click)="addItem(input.value); input.value = ''"
+      >
+        Add
+      </button>
+    </div>
+    <h1>{{ displayAll }}</h1>
+    <div class="form-check mb-3">
+      <input
+        type="checkbox"
+        [(ngModel)]="displayAll"
+        class="form-check-input"
+        id="displayAll"
+      />
+      <label for="displayAll" class="form-check-label">Show All</label>
+    </div>
+    <div class="d3">
+      <div class="d1">
+      <table class="table table-bordered">
+      <thead>
+      <tr>
+      <th></th>
+      <th >Description</th>
+        <th >Action</th>
+      </tr>
+    </thead>
+    <tbody #tbody>
+    <tr
+    (click)="ChangeColor(tbody, tr.style, item)"
+    #tr
+    *ngFor="let item of getItems(); let i = index"
+    >
+    <td>{{ i + 1 }}</td>
+    <td #tf>{{ item.description }}</td>
+    <td (click)="ChangeAction(tf)" *ngIf="item.action">Yes</td>
+    <td (click)="ChangeAction(tf)" *ngIf="!item.action">No</td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div class="d2" >
+<div>
+<h1 class="h1">Description <input class="input1" #input type="text" value="{{ desc }}" /></h1>
+<h1 class="h2">Action</h1>
+<input class="input2" #input2 type="text" value="{{ act }}" />
+<button id="update" class="btn btn-primary" (click)="Update(input, input2)">
+Update
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

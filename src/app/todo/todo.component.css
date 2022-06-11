@@ -1,0 +1,18 @@
+.d3{
+  display: flex;
+}
+.h1{
+  font-size: 2ch;
+  margin-left:2ch;
+}
+.h2{
+  font-size: 2ch;
+  margin-left:2ch;
+}
+.input2{
+  margin-left: 2ch;
+}
+#update{
+  margin-left: 14ch;
+  margin-top: 2ch;
+}
